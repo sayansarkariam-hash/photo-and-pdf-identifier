@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Photo and PDF Identifier</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Photo and PDF Identifier</h1>
+            <p>Automatically find and clean lower resolution duplicate photos & exact PDF duplicates</p>
+        </header>
+
+        <!-- Mode Selection -->
+        <div id="mode-selector" class="mode-selector">
+            <div class="mode-option active" data-mode="photo">
+                <div class="mode-icon">🖼️</div>
+                <div class="mode-info">
+                    <span class="mode-title">Photos</span>
+                    <span class="mode-desc">Find similar images</span>
+                </div>
+            </div>
+            <div class="mode-option" data-mode="pdf">
+                <div class="mode-icon">📄</div>
+                <div class="mode-info">
+                    <span class="mode-title">PDFs</span>
+                    <span class="mode-desc">Find exact duplicates</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- View: Folder Selection & Scan -->
+        <main id="scan-view" class="view">
+            <button id="btn-select" class="btn btn-large">Select Directory to Scan</button>
+            <div id="selected-path" class="selected-path hidden"></div>
+            
+            <div id="progress-container" class="hidden">
+                <h3 id="progress-status">Analyzing Files...</h3>
+                <p id="progress-count">0 files processed</p>
+                <div class="progress-bar">
+                    <div id="progress-fill" class="progress-fill"></div>
+                </div>
+            </div>
+        </main>
+
+        <!-- View: Dashboard & Results -->
+        <main id="dashboard-view" class="view hidden">
+            <div class="dashboard-header">
+                <div class="stats">
+                    <div class="stat-item">
+                        <span class="label">Total Groups</span>
+                        <span id="stat-groups" class="val">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="label">Files to Delete</span>
+                        <span id="stat-dupes" class="val" style="color: var(--danger)">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="label">Space Recoverable</span>
+                        <span id="stat-space" class="val" style="color: var(--success)">0 MB</span>
+                    </div>
+                </div>
+                <div class="actions">
+                    <button id="btn-back" class="btn btn-outline">Go Back</button>
+                    <button id="btn-cleanup" class="btn danger">Cleanup Now</button>
+                </div>
+            </div>
+
+            <div id="groups-container">
+                <!-- Groups will be injected by JavaScript -->
+            </div>
+            
+            <!-- Empty state -->
+            <div id="empty-state" class="hidden">
+                <div class="empty-icon">✨</div>
+                <h2>Clean as a whistle!</h2>
+                <p id="empty-state-text">We didn't find any duplicates in this directory.</p>
+            </div>
+        </main>
+    </div>
+    
+    <!-- Toast Notification -->
+    <div id="toast" class="toast hidden"></div>
+
+    <script src="renderer.js"></script>
+</body>
+</html>

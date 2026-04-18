@@ -1,5 +1,3 @@
-# photo-and-pdf-identifier
-[README.md](https://github.com/user-attachments/files/26850433/README.md)
 # Photo and PDF Identifier
 
 A modern, high-performance desktop application built with Electron to identify and manage duplicate photos and PDF documents.

@@ -1,0 +1,35 @@
+{
+  "name": "photo-and-pdf-identifier",
+  "version": "1.0.0",
+  "description": "Identify and clean duplicate photos and PDFs.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder --win --x64"
+  },
+  "build": {
+    "appId": "com.sayan.photopdfidentifier",
+    "productName": "Photo and PDF Identifier",
+    "win": {
+      "target": "nsis"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    }
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "electron": "^41.2.0",
+    "electron-builder": "^26.8.1"
+  },
+  "dependencies": {
+    "sharp": "^0.34.5"
+  }
+}
